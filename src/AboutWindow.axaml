@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="NandroidDataConverter.AboutWindow"
+        xmlns:local="clr-namespace:NandroidDataConverter"
+        xmlns:nandroidDataConverter="clr-namespace:NandroidDataConverter"
+        SizeToContent="Height" Width="500" WindowStartupLocation="CenterOwner" Loaded="Control_OnLoaded">
+        <DockPanel Margin="5,5,5,5 ">
+            <StackPanel DockPanel.Dock="Bottom" Margin="10" HorizontalAlignment="Right">
+                <Button Content="{x:Static local:Localization.Close}" Click="Button_OnClick"></Button>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Top">
+                <TextBlock Text="{x:Static local:AppInfo.AppName}" FontSize="20" FontWeight="Bold"></TextBlock>
+                <TextBlock Name="VersionTB" Text="{x:Static nandroidDataConverter:AppInfo.AppVersion}" Margin="5,0,0,0"></TextBlock>
+            </StackPanel>
+            <TabControl>
+                <TabItem Header="{x:Static local:Localization.AboutMenu}">
+                    <TextBox TextWrapping="WrapWithOverflow" Text="{x:Static local:Localization.AboutDescription}" Name="AboutDescTxt" IsReadOnly="True"></TextBox>
+                </TabItem>
+                <TabItem Header="{x:Static local:Localization.License}">
+                    <TextBox TextWrapping="WrapWithOverflow" IsReadOnly="True" Name="LicenseTxt">
+                    </TextBox>
+                </TabItem>
+                <TabItem Header="{x:Static local:Localization.Libraries}">
+                    <StackPanel>
+                        <HyperlinkButton NavigateUri="https://avaloniaui.net">Avalonia</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://github.com/amwx/FluentAvalonia">FluentAvalonia</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://github.com/AvaloniaCommunity/MessageBox.Avalonia">MessageBox.Avalonia</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://docs.microsoft.com/dotnet/standard/data/sqlite/">Microsoft.Data.Sqlite.Core</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://github.com/aaubry/YamlDotNet">YamlDotNet</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://github.com/Aptivi/VisualCard">VisualCard</HyperlinkButton>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </DockPanel>
+</Window>
